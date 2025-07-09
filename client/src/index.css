@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply font-sans antialiased;
+    font-family: 'Exo 2', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Exo 2', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', system-ui, sans-serif;
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .glass-morphism {
+    @apply backdrop-blur-xl bg-white/10 border border-white/20 shadow-2xl;
+  }
+  
+  .glass-morphism-dark {
+    @apply backdrop-blur-xl bg-white/5 border border-white/10 shadow-2xl;
+  }
+  
+  .glass-card {
+    @apply backdrop-blur-2xl bg-white/20 dark:bg-white/5 border border-white/30 dark:border-white/10 shadow-2xl rounded-2xl;
+  }
+  
+  .glass-card-enhanced {
+    @apply backdrop-blur-3xl bg-white/15 dark:bg-slate-800/20 border border-white/25 dark:border-slate-700/30 shadow-2xl rounded-2xl;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  }
+  
+  .gradient-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+  
+  .gradient-bg-alt {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  }
+  
+  .gradient-bg-modern {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  }
+  
+  .gradient-bg-dark {
+    background: linear-gradient(135deg, #1e293b 0%, #7c3aed 50%, #1e293b 100%);
+  }
+  
+  .text-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .text-gradient-modern {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .text-gradient-dark {
+    background: linear-gradient(135deg, #a78bfa 0%, #ec4899 50%, #06b6d4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Enhanced dark mode button styles */
+  .btn-dark-primary {
+    @apply bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700;
+    @apply text-white shadow-lg hover:shadow-purple-500/25 transition-all duration-300;
+  }
+  
+  .btn-dark-secondary {
+    @apply bg-slate-800/50 hover:bg-slate-700/50 border border-slate-600/50 hover:border-slate-500/50;
+    @apply text-slate-200 backdrop-blur-xl transition-all duration-300;
+  }
+  
+  /* Mobile-first responsive utilities */
+  .mobile-container {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+  
+  .mobile-text {
+    @apply text-sm sm:text-base lg:text-lg;
+  }
+  
+  .mobile-heading {
+    @apply text-2xl sm:text-3xl lg:text-4xl xl:text-5xl;
+  }
+  
+  .mobile-subheading {
+    @apply text-xl sm:text-2xl lg:text-3xl;
+  }
+  
+  .mobile-card {
+    @apply p-4 sm:p-6 lg:p-8;
+  }
+  
+  .mobile-button {
+    @apply px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base;
+  }
+  
+  /* Enhanced typography for better readability */
+  .analysis-text-large {
+    @apply text-lg sm:text-xl lg:text-2xl leading-relaxed sm:leading-relaxed lg:leading-loose;
+  }
+  
+  .analysis-text-xl {
+    @apply text-xl sm:text-2xl lg:text-3xl leading-relaxed sm:leading-relaxed lg:leading-loose;
+  }
+  
+  .analysis-heading-xl {
+    @apply text-3xl sm:text-4xl lg:text-5xl xl:text-6xl;
+  }
+  
+  .analysis-heading-lg {
+    @apply text-2xl sm:text-3xl lg:text-4xl xl:text-5xl;
+  }
+  
+  .analysis-heading-md {
+    @apply text-xl sm:text-2xl lg:text-3xl xl:text-4xl;
+  }
+  
+  .analysis-spacing {
+    @apply space-y-8 sm:space-y-10 lg:space-y-12 xl:space-y-16;
+  }
+  
+  .analysis-margin-lg {
+    @apply mb-8 sm:mb-10 lg:mb-12 xl:mb-16;
+  }
+  
+  .analysis-margin-md {
+    @apply mb-6 sm:mb-8 lg:mb-10 xl:mb-12;
+  }
+  
+  .analysis-padding-enhanced {
+    @apply p-8 sm:p-10 lg:p-12 xl:p-16;
+  }
+  
+  /* Enhanced animations for mobile */
+  .fade-in-up {
+    @apply opacity-0 translate-y-4;
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+  
+  .fade-in-scale {
+    @apply opacity-0 scale-95;
+    animation: fadeInScale 0.5s ease-out forwards;
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      @apply opacity-100 translate-y-0;
+    }
+  }
+  
+  @keyframes fadeInScale {
+    to {
+      @apply opacity-100 scale-100;
+    }
+  }
+  
+  /* Touch-friendly interactions */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
+  
+  /* Custom scrollbar for mobile */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(155, 155, 155, 0.5) transparent;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(155, 155, 155, 0.5);
+    border-radius: 20px;
+  }
+  
+  /* Exo 2 font utilities */
+  .font-exo {
+    font-family: 'Exo 2', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', system-ui, sans-serif;
+  }
+  
+  .text-exo {
+    font-family: 'Exo 2', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', system-ui, sans-serif;
+  }
+}
