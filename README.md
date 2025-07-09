@@ -206,29 +206,6 @@ The Gemini AI provides:
 
 ---
 
-## 🚀 Future Enhancements (Optional)
-- User login for history
-- Chat-based follow-up Q&A with AI
-- Multilingual support
-- OCR for scanned image PDFs
-- Export to different formats
-- Health trends tracking
-
----
-
-## 📦 Deployment
-
-### Backend Deployment (Railway/Render/Vercel)
-1. Set environment variables in your platform
-2. Deploy the `/server` directory
-3. Update CORS settings for your domain
-
-### Frontend Deployment (Vercel/Netlify)
-1. Build the project: `npm run build`
-2. Deploy the `/client/dist` directory
-3. Update API endpoint in production
-
----
 
 ## 💡 License
 MIT License. Built with ❤️ for better health insights.
