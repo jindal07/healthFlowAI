@@ -15,7 +15,7 @@ dotenv.config({ path: join(__dirname, '../.env') });
 // Debug: Check if environment variables are loaded
 console.log('🌍 Environment check:');
 console.log('- PORT:', process.env.PORT || 'not set');
-console.log('- GEMINI_API_KEY:', process.env.GEMINI_API_KEY ? '✅ Set' : '❌ Not set');
+console.log('- GEMINI_API_KEY:', process.env.GEMINI_API_KEY ? ' Set' : ' Not set');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -25,8 +25,8 @@ app.use(cors({
   origin: [
     'http://localhost:5173',
     'http://localhost:3000',
-    'https://health-flow.netlify.app'
-  ],
+    'https://health-flow.netlify.app',
+  ].filter(Boolean),
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
@@ -64,9 +64,12 @@ app.use('*', (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
-  console.log(`📋 Health check: http://localhost:${PORT}/health`);
-});
+// Only listen on port in development
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`🚀 Server running on http://localhost:${PORT}`);
+    console.log(`📋 Health check: http://localhost:${PORT}/health`);
+  });
+}
 
 export default app;
