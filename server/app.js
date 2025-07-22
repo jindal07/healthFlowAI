@@ -26,12 +26,6 @@ app.use(cors({
     'http://localhost:5173',
     'http://localhost:3000',
     'https://health-flow.netlify.app',
-    // Allow any Vercel deployment
-    /\.vercel\.app$/,
-    // Allow any Railway deployment
-    /\.railway\.app$/,
-    // Allow any custom domain
-    process.env.FRONTEND_URL
   ].filter(Boolean),
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
@@ -70,12 +64,11 @@ app.use('*', (req, res) => {
   });
 });
 
-// Only listen on port in development
-if (process.env.NODE_ENV !== 'production') {
+
   app.listen(PORT, () => {
     console.log(`🚀 Server running on http://localhost:${PORT}`);
     console.log(`📋 Health check: http://localhost:${PORT}/health`);
   });
-}
+
 
 export default app;
