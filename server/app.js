@@ -26,6 +26,12 @@ app.use(cors({
     'http://localhost:5173',
     'http://localhost:3000',
     'https://health-flow.netlify.app',
+    // Allow any Vercel deployment
+    /\.vercel\.app$/,
+    // Allow any Railway deployment
+    /\.railway\.app$/,
+    // Allow any custom domain
+    process.env.FRONTEND_URL
   ].filter(Boolean),
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
